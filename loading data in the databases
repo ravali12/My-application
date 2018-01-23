@@ -1,0 +1,388 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+using System.Text;
+
+namespace ORSP.Controllers
+{
+    public class DataFormController : Controller
+    {
+        [HttpGet]
+        public ActionResult Index()
+        {
+            DataForm dataformmodel = new DataForm();
+
+
+
+
+            return View(dataformmodel);
+        }
+
+        [HttpPost]
+        public ActionResult Index(DataForm dataformmodel)
+        {
+            using (ConnectionDBEntities5 connectiondbentities = new ConnectionDBEntities5())
+            {
+
+                connectiondbentities.DataForms.Add(dataformmodel);
+                connectiondbentities.SaveChanges();
+
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "SuccessfullySubmitted.";
+            return View("Index", new DataForm());
+        }
+
+    
+    }
+}
+
+
+*******//AnnualBudget//***********
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class AnnualBudgetController : Controller
+    {
+        // GET: AnnualBudget
+        public ActionResult AnnualBudgettb()
+        {
+            AnnualBudget annualbudgetmodel = new AnnualBudget();
+
+            return View(annualbudgetmodel);
+        }
+        [HttpPost]
+        public ActionResult AnnualBudgettb(AnnualBudget annualbudgetmodel)
+        {
+            using (ConnectionDBEntities2 connectiondbentity = new ConnectionDBEntities2())
+            {
+                connectiondbentity.AnnualBudgets.Add(annualbudgetmodel);
+                connectiondbentity.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("AnnualBudgettb", new AnnualBudget());
+        }
+    }
+}
+
+
+*********************************************DEmograph***************
+
+
+using ORSP.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace ORSP.Controllers
+{
+    public class DemographController : Controller
+    {
+        // GET: Demograph
+        [HttpGet]
+        public ActionResult Demographtb()
+        {
+            Demograph demographmodel = new Demograph();
+
+
+            return View(demographmodel);
+        }
+        [HttpPost]
+        public ActionResult Demographtb(Demograph demographmodel)
+        {
+            using (ConnectionDBEntities connectiondbentities = new ConnectionDBEntities())
+            {
+                connectiondbentities.Demographs.Add(demographmodel);
+                connectiondbentities.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("Demographtb", new Demograph());
+        }
+
+
+
+
+
+
+
+    }
+}
+
+*******************************Equipment****************
+
+
+        using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class EquipmentYearController : Controller
+    {
+        [HttpGet]
+        public ActionResult EquipmentYeartb()
+        {
+            EquipmentYear equipmentyearmodel = new EquipmentYear();
+
+            return View(equipmentyearmodel);
+
+        }
+        [HttpPost]
+        public ActionResult EquipmentYeartb(EquipmentYear equipmentyearmodel)
+        {
+            using (ConnectionDBEntities1 connectiondbentities1 = new ConnectionDBEntities1())
+            {
+                connectiondbentities1.EquipmentYears.Add(equipmentyearmodel);
+                connectiondbentities1.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("EquipmentYeartb", new EquipmentYear());
+        }
+    }
+}
+
+
+***************************************FundingTravel******************
+
+
+        
+    using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class FacultyTravelController : Controller
+    {
+        [HttpGet]
+        public ActionResult FacultyTraveltb()
+        {
+            FacultyTravel facultytravelmodel = new FacultyTravel();
+
+
+            return View(facultytravelmodel);
+        }
+        [HttpPost]
+        public ActionResult FacultyTraveltb(FacultyTravel facultytravelmodel)
+        {
+            using (ConnectionDBEntities connectiondbentities = new ConnectionDBEntities())
+            {
+                connectiondbentities.FacultyTravels.Add(facultytravelmodel);
+                connectiondbentities.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("FacultyTraveltb", new FacultyTravel());
+        }
+
+    }
+}
+
+
+        
+        *********************GASal*********************
+        
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+
+namespace ORSP.Controllers
+{
+    public class GASalaryController : Controller
+    {
+        // GET: GASalary
+        public ActionResult GASalarytb()
+        {
+            GASalary gasalarymodel = new GASalary();
+
+            return View(gasalarymodel);
+        }
+        [HttpPost]
+        public ActionResult GASalarytb(GASalary gasalarymodel)
+        {
+            using (ConnectionDBEntities1 connectiondbentity = new ConnectionDBEntities1())
+            {
+                connectiondbentity.GASalarys.Add(gasalarymodel);
+                connectiondbentity.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("GASalarytb", new GASalary());
+        }
+    }
+}
+****************************************Indeiect Funds*************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class IndirectFundingController : Controller
+    {
+        [HttpGet]
+        public ActionResult IndirectFundingtb()
+        {
+            IndirectFunding indfundingmodel = new IndirectFunding();
+
+            return View(indfundingmodel);
+        }
+        [HttpPost]
+        public ActionResult IndirectFundingtb(IndirectFunding indfundingmodel)
+        {
+            using (ConnectionDBEntities2 connectiondbentity = new ConnectionDBEntities2())
+            {
+                connectiondbentity.IndirectFundings.Add(indfundingmodel);
+                connectiondbentity.SaveChanges();
+            }
+
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("IndirectFundingtb", new IndirectFunding());
+        }
+    }
+}
+*************************PostDoc******************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class PostDocandResearchSalController : Controller
+    {
+        [HttpGet]
+        public ActionResult pdandrtb()
+        {
+            PostDocandResearchSal pdandrmodel = new PostDocandResearchSal();
+
+            return View(pdandrmodel);
+        }
+        [HttpPost]
+        public ActionResult pdandrtb(PostDocandResearchSal pdandrmodel)
+        {
+            using (ConnectionDBEntities2 connectiondbentity = new ConnectionDBEntities2())
+            {
+                connectiondbentity.PostDocandResearchSals.Add(pdandrmodel);
+                connectiondbentity.SaveChanges();
+            }
+
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("pdandrtb", new PostDocandResearchSal());
+        }
+    }
+}
+******************Salary****************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class SalaryController : Controller
+    {
+        // GET: Salary
+       
+        [HttpGet]
+        public ActionResult Salarytb()
+        {
+            Salary Salarymodel = new Salary();
+
+            return View(Salarymodel);
+        }
+        [HttpPost]
+        public ActionResult Salarytb(Salary Salarymodel)
+        {
+            using (ConnectionDBEntities2 connectiondbentity = new ConnectionDBEntities2())
+            {
+                connectiondbentity.Salaries.Add(Salarymodel);
+                connectiondbentity.SaveChanges();
+            }
+
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("Salarytb", new Salary());
+        }
+
+    }
+    
+}********************Tuition*****************
+
+
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ORSP.Models;
+
+namespace ORSP.Controllers
+{
+    public class TuitionController : Controller
+    {
+        [HttpGet]
+        public ActionResult Tuitiontb()
+        {
+            Tuition tuitionmodel = new Tuition();
+
+            return View(tuitionmodel);
+        }
+        [HttpPost]
+        public ActionResult Tuitiontb(Tuition tuitionmodel)
+        {
+            using (ConnectionDBEntities1 connectiondbentity = new ConnectionDBEntities1())
+            {
+                connectiondbentity.Tuitions.Add(tuitionmodel);
+                connectiondbentity.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successfully Submitted.";
+            return View("Tuitiontb", new Tuition());
+        }
+    }
+}      
+
+    
+
+    
+
+
+
