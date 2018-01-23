@@ -1,0 +1,87 @@
+using ORSP.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Helpers;
+using System.Web.Mvc;
+
+namespace ORSP.Controllers
+{
+    public class FundingModelController : Controller
+    {
+        // GET: FundingModel
+        public ActionResult ExportAnnual()
+        {
+            List<AnnualBudget> alldata = new List<AnnualBudget>();
+            using (ConnectionDBEntities8 entities = new ConnectionDBEntities8()) 
+            {
+                alldata = entities.AnnualBudgets.ToList();
+            }
+                return View(alldata);
+        }
+        public void GetExcel()
+        {
+            List<AnnualBudget> alldata = new List<AnnualBudget>();
+            using (ConnectionDBEntities8 entities = new ConnectionDBEntities8())
+            {
+                alldata = entities.AnnualBudgets.ToList();
+
+            }
+            WebGrid grid = new WebGrid(source: alldata, canPage: false, canSort: false);
+
+            string gridData = @grid.GetHtml(
+                    columns: grid.Columns(
+                        grid.Column("TotalUNLVInfrastructureFunding", "TotalUNLVInfrastructureFunding"),
+                        grid.Column("TotalIndirectsToUNLV", "TotalIndirectsToUNLV"),
+                        grid.Column("COEIndirectFunding", "COEIndirectFunding"),
+                        grid.Column("TotalCOEInfrastructureFunding", "TotalCOEInfrastructureFunding")
+
+                        )
+                    ).ToString();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=AnnualBudget.xls");
+            Response.ContentType = "application/excel";
+            Response.Write(gridData);
+            Response.End();
+
+        }
+        public ActionResult ExportGASalary()
+        {
+            List<GASalary> alldata = new List<GASalary>();
+            using (ConnectionDBEntities8 entities = new ConnectionDBEntities8())
+            {
+                alldata = entities.GASalaries.ToList();
+            }
+            return View(alldata);
+        }
+        public void GetExcel1()
+        {
+            List<GASalary> alldata = new List<GASalary>();
+            using (ConnectionDBEntities8 entities = new ConnectionDBEntities8())
+            {
+                alldata = entities.GASalaries.ToList();
+
+            }
+            WebGrid grid = new WebGrid(source: alldata, canPage: false, canSort: false);
+
+            string gridData = @grid.GetHtml(
+                    columns: grid.Columns(
+                        grid.Column("GASalaryYear1", "GASalaryYear1"),
+                        grid.Column("GASalaryYear2", "GASalaryYear2"),
+                        grid.Column("GASalaryYear3", "GASalaryYear3"),
+                        grid.Column("GASalaryYear4", "GASalaryYear4"),
+                        grid.Column("GASalaryYear5", "GASalaryYear5"),
+                        grid.Column("TotalGASalaries","TotalGASalaries")
+
+                        )
+                    ).ToString();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=GASalary.xls");
+            Response.ContentType = "application/excel";
+            Response.Write(gridData);
+            Response.End();
+
+        }
+    }
+}
