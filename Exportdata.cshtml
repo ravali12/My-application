@@ -1,46 +1,83 @@
-@model List<ORSP.Models.DataForm>
+@model List<Myapplication.Models.info>
 
 @{
-    ViewBag.Title = "ExportData";
+    ViewBag.Title = "Exportinfo";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var grid = new WebGrid(source: Model, canPage: false);
 }
 
+@* CSS *@
+
+<style type="text/css">
+    table.gridtable {
+        width: 100%;
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 50px;
+        border-color: #666666;
+        border-collapse: collapse;
+        overflow: scroll;
+        overflow-x: auto;
+    }
+
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+            overflow-x: auto
+        }
+
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+            overflow-x: auto
+        }
+
+    .gridtable {
+        overflow: scroll;
+        overflow-x: auto;
+    }
+</style>
+
+
+
 <h2>ExportData</h2>
-<div>
-    @grid.GetHtml(
-    tableStyle:"gridtable",
-    columns:grid.Columns(
-        grid.Column("Email", "Email"),
-        grid.Column("FundingAgency", "FundingAgency"),
-        grid.Column("PrimeProposal", "PrimeProposal"),
-        grid.Column("RFPTitle", "RFPTitle"),
-        grid.Column("SolicitationNumber", "SolicitationNumber"),
+<div class="gridtableview" style="overflow: scroll; width: auto">
+    <div style="width: 1000px">
+        @grid.GetHtml(
+    tableStyle: "gridtable",
+    columns: grid.Columns(
+        grid.Column("Name", "Name"),
+        grid.Column("Funds", "Funds"),
+        grid.Column("Proposal", "Proposal"),
+        grid.Column("Title", "Title"),
+        grid.Column("IdentitificationNumber", "IdentitificationNumber"),
         grid.Column("ProjectName", "ProjectName"),
-        grid.Column("WorkingorFinal", "WorkingorFinal"),
-        grid.Column("DueDate", "DueDate"),
-        grid.Column("SizeofRequest", "SizeofRequest"),
-        grid.Column("LeadPI", "LeadPI"),
-        grid.Column("CoPIS", "CoPIS"), 
-        grid.Column("UCBarkleypersonnel", "UCBarkleypersonnel"),
-        grid.Column("ReviewerComments", "ReviewerComments"),
+        grid.Column("FinalorInitial", "FinalorInitial"),
+        grid.Column("Start", "Start"),
+        grid.Column("End", "End"),
+        grid.Column("Partners", "Partners"),
+        grid.Column("Collaborations", "Collaborations"),
+        grid.Column("Personnels", "Personnels"),
+        grid.Column("Comments", "Comments"),
         grid.Column("Purpose", "Purpose"),
-        grid.Column("RelevantBackground", "RelevantBackground"),
-        grid.Column("GoalsandQuestions", "GoalsandQuestions"),
-        grid.Column("Reference", "Reference"),
+        grid.Column("Experience", "Experience"),
+        grid.Column("Goals", "Goals"),
+        grid.Column("Supporters", "Supporters"),
         grid.Column("Approach", "Approach"),
-        grid.Column("ProjectworkPlan", "ProjectworkPlan"),
-        grid.Column("Startdate", "Startdate"),
-        grid.Column("Enddate", "Enddate"),
-        grid.Column("PeriodOfPerformance", "PeriodOfPerformance"),
-        grid.Column("Collaborators", "Collaborators"),
-        grid.Column("Probability", "Probability"),
-        grid.Column("InformationNeeded", "InformationNeeded"),
-        grid.Column("Anticipateddate", "Anticipateddate")
+        grid.Column("Plan", "Plan"),
+        g
         )
       )
+        </div>
 
-</div>
-<div>
-    Export Data : @Html.ActionLink("Excel", "GetExcel","ExportDataForm" )
-</div>
+    </div>
+    <div>
+        Export Data : @Html.ActionLink("Excel", "GetExcel10", "Exportinfo")
+    </div>
