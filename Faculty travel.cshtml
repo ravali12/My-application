@@ -1,68 +1,68 @@
-@model ORSP.Models.FacultyTravel
+@model myapplication.Models.Travel
 
 @{
-    ViewBag.Title = "FacultyTraveltb";
+    ViewBag.Title = "Travelindex";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FacultyTravel</h2>
+<h2>Travel</h2>
 
 
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>FacultyTravel</h4>
+        <h4>Travel</h4>
         <hr />
-        @using (Html.BeginForm("FacultyTraveltb", "FacultyTravel", FormMethod.Post))
+        @using (Html.BeginForm("Travelindex", "Travel", FormMethod.Post))
         {
 
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.Faculty_Travel_Year_1, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Travel_1, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Faculty_Travel_Year_1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Faculty_Travel_Year_1, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Travel_1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Travel_1, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Faculty_Travel_Year_2, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Travel_2, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Faculty_Travel_Year_2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Faculty_Travel_Year_2, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Travel_2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Travel_2, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Faculty_Travel_Year_3, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Travel_3, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Faculty_Travel_Year_3, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Faculty_Travel_Year_3, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Travel_3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Travel_3, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Faculty_Travel_Year_4, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Travel_4, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Faculty_Travel_Year_4, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Faculty_Travel_Year_4, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Travel_4, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Travel_4, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Faculty_Travel_Year_5, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Travel_5, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Faculty_Travel_Year_5, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Faculty_Travel_Year_5, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Travel_5 new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Travel_5, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Total_Faculty_Travel, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.TotalTravel, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Total_Faculty_Travel, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Total_Faculty_Travel, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.otalTravel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.otalTravel, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -81,6 +81,6 @@
         }
 
         <div>
-            @Html.ActionLink("Back to List", "FacultyTraveltb")
+            @Html.ActionLink("Back to List", "Travelindex
         </div>
     </div>
