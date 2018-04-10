@@ -54,26 +54,26 @@ using myapplication.Models;
 
 namespace myapplication.Controllers
 {
-    public class AnnualBudgetController : Controller
+    public class BudgetController : Controller
     {
-        // GET: AnnualBudget
-        public ActionResult AnnualBudgettb()
+        // GET: Budget
+        public ActionResult BudgetIndex()
         {
-            AnnualBudget annualbudgetmodel = new AnnualBudget();
+            AnnualBudget budgetsmodel = new Budget();
 
-            return View(annualbudgetmodel);
+            return View(budgetsmodel);
         }
         [HttpPost]
-        public ActionResult AnnualBudgettb(AnnualBudget annualbudgetmodel)
+        public ActionResult BudgetIndex(Budget budgetsmodel)
         {
-            using (ConnectionDBEntities2 connectiondbentity = new ConnectionDBEntities2())
+            using (ConnectionDBEntities connectiondbentity = new ConnectionDBEntities())
             {
-                connectiondbentity.AnnualBudgets.Add(annualbudgetmodel);
+                connectiondbentity.Budgets.Add(budgetsmodel);
                 connectiondbentity.SaveChanges();
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Successfully Submitted.";
-            return View("AnnualBudgettb", new AnnualBudget());
+            return View("BudgetIndex", new Budget());
         }
     }
 }
